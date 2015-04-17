@@ -2,14 +2,24 @@
 --2)데이터 조작 언어(DML):insert,update,delete,select
 --3)데이터 제어 언어(DCL):grant,revoke
 
-create table member(
-name char(4) primary key,
-USERID varchar(10),
-PWD    varchar(10),
-EMAIL  varchar(12),
-phone  varchar(15),
-ADMIN  int
-
+--member 테이블 생성
+create table member
+(
+	id	varchar2(15) primary key,
+	password	varchar2(10),
+	name		varchar2(20),
+	age         number,
+	gender      char(1),
+	addr        varchar2(100),
+	regdate date default sysdate
 );
 
+insert into member values ('test1','1234','홍길동','20','1','서울시',default);
+update member
+set    addr='경기도'
+where  id='test1';
+
+delete member
+where   id='d';
 select * from member;
+
