@@ -23,3 +23,5 @@ delete member
 where   id='id';
 select * from member;
 
+select * from member
+where id='1';

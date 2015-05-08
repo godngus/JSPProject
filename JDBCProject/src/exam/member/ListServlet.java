@@ -57,15 +57,19 @@ public class ListServlet extends HttpServlet {
 				e.printStackTrace();
 			}
 			//4.데이터 출력
-			response.setContentType("text/html;charset=UTF-8");
+			response.setContentType("text/html;charset=UTF-8");	
+		
 		PrintWriter out=response.getWriter();
+		out.print("<h1>회원 리스트</h1><hr>");
 			try {
 				out.print("<table border=1>");
+				out.print("<tr><th>아이디</th><th>이름</th><th>나이</th><th>주소</th></td>");
 				while(rs.next()){
 				out.print("<tr>");
-				out.print("<td>"+rs.getString("id")+"</td>");
+				out.print("<td><a href='view?id="+rs.getString("id")+"'>"+rs.getString("id")+"</a></td>");
 				out.print("<td>"+rs.getString("name")+"</td>");
 				out.print("<td>"+rs.getInt("age")+"</td>");
+				out.print("<td>"+rs.getString("addr")+"</td>");
 				out.print("<br>");
 				out.print("</tr>");
 				}

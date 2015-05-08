@@ -46,8 +46,10 @@ int result = pstmt.executeUpdate();
 
 if(result==0)
 	out.print("회원가입실패");
-else 
+else{ 
 	out.print("회원가입 성공");
+	response.sendRedirect("list");
+}
 //4.데이터베이스 연결 끊음
 pstmt.close();
 con.close();
