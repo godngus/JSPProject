@@ -2,7 +2,7 @@ package exam.dto;
 
 import java.sql.*;
 
-//DTO=VO=Java Beans
+//DTO=VO=Java Beans//데이터를 넘기는 단위 데이터베이스 컬럼갯수와 맞춰서 만듦.
 public class Member {
 	private String id;
 	private String password;
