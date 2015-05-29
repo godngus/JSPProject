@@ -1,12 +1,14 @@
 package board.dto;
 
+import java.sql.Date;
+
 public class Board {
 private int num;
 private String name;
 private String title;
 private String content;
 private String attachment;
-private int wdate;
+private Date wdate;
 private int hits;
 public String getName() {
 	return name;
@@ -38,10 +40,10 @@ public String getAttachment() {
 public void setAttachment(String attachment) {
 	this.attachment = attachment;
 }
-public int getWdate() {
+public Date getWdate() {
 	return wdate;
 }
-public void setWdate(int wdate) {
+public void setWdate(Date wdate) {
 	this.wdate = wdate;
 }
 public int getHits() {
