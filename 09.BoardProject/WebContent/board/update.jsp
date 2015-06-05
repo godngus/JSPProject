@@ -38,13 +38,15 @@
 		    <div class="form-group">
 		      <label for="inputEmail" class="col-lg-2 control-label">이름 : </label>
 		      <div class="col-lg-10">
-		        <input type="text" class="form-control" id="subject" placeholder="이름을 입력하세요.">
+		      <input type="hidden" name="num" >
+		        <input type="text" class="form-control" id="subject"  placeholder="이름을 입력하세요.">
 		      </div>
 		    </div>
 		    
 		    <div class="form-group">
 		      <label for="inputEmail" class="col-lg-2 control-label">제목 : </label>
 		      <div class="col-lg-10">
+		      <input type="hidden" name="title">
 		        <input type="text" class="form-control" id="subject" placeholder="제목을 입력하세요.">
 		      </div>
 		    </div>
@@ -52,6 +54,7 @@
 		    <div class="form-group">
 		      <label for="textArea" class="col-lg-2 control-label">내용 : </label>
 		      <div class="col-lg-10">
+		      <input type="hidden" name="content">
 		        <textarea class="form-control" rows="10" id="textArea"></textarea>
 		      </div>
 		    </div>

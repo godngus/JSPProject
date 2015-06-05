@@ -24,13 +24,7 @@ public class BoardDAO {
 	}
 		
 
-	public Board seletOnBoardByNum(int num){
-		return null;
-		
-	}
-	public void updateHits(int num){
-		
-	}
+	
 	public List<Board> selectAllBoards(){
 		String sql="select *from board order by num desc";
 		List<Board> list =new ArrayList();
@@ -60,18 +54,50 @@ public class BoardDAO {
 	
 		
 	}
+	//상세보기
 	public Board selectOneBoardByNum(int num){
-		return null;
+		String sql="select * from board where num=?";
+		Board board=new Board();
+		try {
+			pstmt=con.prepareStatement(sql);
+			pstmt.setInt(1, num);
+			
+			rs=pstmt.executeQuery();
+			if(rs.next()){
+				board.setNum(rs.getInt("num"));
+				board.setName(rs.getString("name"));
+				board.setTitle(rs.getString("title"));
+				board.setContent(rs.getString("content"));
+				board.setAttachment(rs.getString("attachment"));
+			}
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return board;
 		
 	}
+	//조회수 증가
+	public void updateHits(int num) throws SQLException{
+		String sql="update board set hits =hits+1 where num=?";
+		
+		pstmt=con.prepareStatement(sql);
+		
+		pstmt.setInt(1,num);
+		
+		pstmt.executeUpdate();
+	}
+
 	public int insertBoard(Board board){
-		String sql="insert into board values(board_seq.nextval,?,?,?,default,default,'file')";
+		String sql="insert into board values(board_seq.nextval,?,?,?,default,default,?)";
 		try {
 			pstmt =con.prepareStatement(sql);
 			
 			pstmt.setString(1,board.getName());
 			pstmt.setString(2,board.getTitle());
 			pstmt.setString(3,board.getContent());
+			pstmt.setString(4,board.getAttachment());
 			
 			int result = pstmt.executeUpdate();
 			if(result!=0){

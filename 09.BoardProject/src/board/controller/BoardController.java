@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import board.action.Action;
 import board.action.BoardListAction;
+import board.action.BoardViewAction;
 import board.action.BoardWriteAction;
 import board.action.BoardWriteFormAction;
 
@@ -74,6 +75,16 @@ public class BoardController extends HttpServlet {
 			//글쓰기
 			else if(command.equals("/write.woohyun")){
 				 action=new BoardWriteAction();//BoardWriteFormAction의 부모가 Action이므로 생략가능.
+					action.execute(request, response);//원래 하던일을 다 넘김
+			}
+			//글쓰기 폼
+			else if(command.equals("/write.woohyun")){
+			 action=new BoardWriteAction();//BoardWriteFormAction의 부모가 Action이므로 생략가능.
+				action.execute(request, response);//원래 하던일을 다 넘김
+			}
+			//상세보기
+			else if(command.equals("/view.woohyun")){
+				 action=new BoardViewAction();//BoardWriteFormAction의 부모가 Action이므로 생략가능.
 					action.execute(request, response);//원래 하던일을 다 넘김
 			}
 	}
